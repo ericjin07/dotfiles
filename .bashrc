@@ -82,7 +82,7 @@ prompt_git() {
 			git rev-parse --short HEAD 2> /dev/null || \
 			echo '(unknown)')";
 
-		[ -n "${s}" ] && s=" [${s}]";
+		[ -n "${s}" ] && s="[${s}]";
 
 		echo -e "${1}${branchName}${2}${s}";
 	else
@@ -113,7 +113,7 @@ if tput setaf 1 &> /dev/null; then
 	# Solarized colors, taken from http://git.io/solarized-colors.
 	black=$(tput setaf 0);
 	blue=$(tput setaf 33);
-	cyan=$(tput setaf 37);
+	cyan=$(tput setaf 14);
 	green=$(tput setaf 40);
 	orange=$(tput setaf 202);
 	purple=$(tput setaf 125);
@@ -159,7 +159,7 @@ if [ "$color_prompt" = yes ]; then
     PS1+="\[${hostStyle}\]\h"; # host
     PS1+="\[${white}\] in ";
     PS1+="\[${green}\]\w"; # working directory full path
-    PS1+="\$(prompt_git \"\[${white}\] on \[${blue}\]\" \"\[${blue}\]\")"; # Git repository details
+    PS1+="\$(prompt_git \"\[${white}\] on \[${blue}\]\" \"\[${cyan}\]\")"; # Git repository details
     PS1+="\n";
     PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 else
@@ -210,6 +210,7 @@ alias dc="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
+alias mp="cd ~/myProjects"
 alias g="git"
 
 # Add an "alert" alias for long running commands.  Use like so:
