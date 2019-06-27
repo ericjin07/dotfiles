@@ -155,13 +155,13 @@ if [ "$color_prompt" = yes ]; then
     PS1="${debian_chroot:+($debian_chroot)}\[\033]0;\W\007\]"; # working directory base name
     PS1+="\[${bold}\]\n"; # newline
     PS1+="\[${userStyle}\]\u"; # username
-    PS1+="\[${white}\]@";
+    PS1+="\[${blue}\]@";
     PS1+="\[${hostStyle}\]\h"; # host
-    PS1+="\[${white}\] in ";
+    PS1+="\[${blue}\] in ";
     PS1+="\[${green}\]\w"; # working directory full path
-    PS1+="\$(prompt_git \"\[${white}\] on \[${blue}\]\" \"\[${cyan}\]\")"; # Git repository details
+    PS1+="\$(prompt_git \"\[${red}\] on \[${blue}\]\" \"\[${cyan}\]\")"; # Git repository details
     PS1+="\n";
-    PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+    PS1+="\[${blue}\]\$ \[${reset}\]"; # `$` (and reset color)
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -213,6 +213,9 @@ alias p="cd ~/Projects"
 alias mp="cd ~/myProjects"
 alias g="git"
 
+# alias for common or long command
+alias sshlogin="$HOME/sshlogin.sh"
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -237,5 +240,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
